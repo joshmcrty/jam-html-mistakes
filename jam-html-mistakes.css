@@ -1,0 +1,19 @@
+/**
+ * Styles HTML elements to highlight potential issues
+ */
+.jam-html-mistakes {
+	outline-style: dotted !important;
+	outline-width: 5px !important;
+}
+.jam-html-mistakes-padding {
+	padding: 20px;
+}
+.jam-html-mistakes-solid {
+	outline-style: solid !important;
+}
+.jam-html-mistakes-warning {
+	outline-color: yellow !important;
+}
+.jam-html-mistakes-error {
+	outline-color: red !important;
+}

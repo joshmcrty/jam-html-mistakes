@@ -30,6 +30,17 @@ load_plugin_textdomain( 'jam-html-mistakes', false, basename( dirname( __FILE__ 
 
 /**
  * Styles based on CSS Diagnostics (http://css-tricks.com/snippets/css/css-diagnostics/)
+ *
+ * Proposed Deprecated Elements
+ * input[type="button"], big, tt { border: 2px dotted #33FF00 !important; }
+ * 
+ * Proposed Deprecated Attributes
+ * *[border], a[target], table[cellpadding], table[cellspacing], *[name] { border: 2px solid #33FF00 !important; }
+ * 
+ */
+
+/**
+ * Enqueue scripts and styles
  */
 function jam_html_mistakes() {
 	
@@ -37,38 +48,12 @@ function jam_html_mistakes() {
 		return;
 	}
 	else {
-	
-	?><style type="text/css">
-		/* Empty Elements */
-		div:empty, span:empty, li:empty, p:empty, td:empty, th:empty
-		{ border: 20px; border: 5px dotted yellow !important; }
+		wp_register_style( 'jam-html-mistakes-style', plugins_url('jam-html-mistakes.css', __FILE__), false, '20120830' );
+		wp_enqueue_style( 'jam-html-mistakes-style' );
 
-		/* Empty Attributes */
-		*[alt=""], *[title=""], *[class=""], *[id=""], a[href=""], a[href="#"]
-		{ border: 5px solid yellow !important; }
-
-		/* Deprecated Elements */
-		applet, basefont, center, dir, font, isindex, menu, s, strike, u
-		{ border: 5px dotted red !important; }
-
-		/* Deprecated Attributes */
-		*[background], *[bgcolor], *[clear], *[color], *[compact], *[noshade], *[nowrap], *[size], *[start],
-		*[bottommargin], *[leftmargin], *[rightmargin], *[topmargin], *[marginheight], *[marginwidth], *[alink], *[link], *[text], *[vlink],
-		*[align], *[valign],
-		*[hspace], *[vspace],
-		:not(img)[height], :not(img)[width],
-		ul[type], ol[type], li[type]
-		{ border: 5px solid red !important; }
-
-		/* Proposed Deprecated Elements */
-		input[type="button"], big, tt
-		{ border: 2px dotted #33FF00 !important; }
-
-		/* Proposed Deprecated Attributes */
-		*[border], a[target], table[cellpadding], table[cellspacing], *[name]
-		{ border: 2px solid #33FF00 !important; }
-	</style>'<?php
+		wp_register_script( 'jam_html_mistakes', plugins_url( 'jam-html-mistakes.js', __FILE__ ), array( 'jquery' ), '20120830', false );
+		wp_enqueue_script( 'jam_html_mistakes' );
 	}
 }
-add_action( 'wp_head', 'jam_html_mistakes' );
+add_action( 'wp_enqueue_scripts', 'jam_html_mistakes' );
 ?>

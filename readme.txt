@@ -5,11 +5,11 @@ Requires at least: 3.3.1
 Tested up to: 3.4.1
 License: GPLv2
 
-A simple plugin that uses CSS to highlight potential HTML mistakes and issues.
+A simple plugin that uses jQuery and CSS to highlight potential HTML mistakes and issues.
 
 == Description ==
 
-JAM HTML Mistakes adds CSS to your WordPress site that will highlight potential HTML mistakes and issues. These include missing or empty attributes, deprecated HTML elements, deprecated attributes, and empty HTML elements. The plugin adds styles for logged in users when activated. To turn off the styles, simply deactivate the plugin.
+JAM HTML Mistakes uses jQuery and CSS to highlight potential HTML mistakes and issues on your WordPress site. These include missing or empty attributes, deprecated HTML elements, deprecated attributes, and empty HTML elements. It is based on the CSS selectors and styles at http://css-tricks.com/snippets/css/css-diagnostics. The plugin only works for logged in users when activated. To turn off the styles when logged in, simply deactivate the plugin.
 
 == Installation ==
 
