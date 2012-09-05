@@ -30,21 +30,12 @@ load_plugin_textdomain( 'jam-html-mistakes', false, basename( dirname( __FILE__ 
 
 /**
  * Styles based on CSS Diagnostics (http://css-tricks.com/snippets/css/css-diagnostics/)
- *
- * Proposed Deprecated Elements
- * input[type="button"], big, tt { border: 2px dotted #33FF00 !important; }
  * 
- * Proposed Deprecated Attributes
- * *[border], a[target], table[cellpadding], table[cellspacing], *[name] { border: 2px solid #33FF00 !important; }
- * 
- */
-
-/**
  * Enqueue scripts and styles
  */
 function jam_html_mistakes() {
 	
-	if ( ! is_user_logged_in() && ! is_admin() ) {
+	if ( ! is_user_logged_in() || is_admin() ) {
 		return;
 	}
 	else {

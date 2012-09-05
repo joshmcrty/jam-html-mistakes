@@ -21,7 +21,7 @@
 		// Empty attributes
 		$( '*[alt=""], *[title=""], *[class=""], *[id=""], a[href=""], a[href="#"]' ).filter( function( index ) {
 			return $( this ).closest( '#wpadminbar' ).length === 0;
-		}).addClass( 'jam-html-mistakes jam-html-mistakes-warning' ).each( function() {
+		}).addClass( 'jam-html-mistakes jam-html-mistakes-solid jam-html-mistakes-warning' ).each( function() {
 			var notice = $( this ).attr( 'title' );
 			if ( typeof notice !== "undefined" ) {
 				notice += "/\n***Empty attribute***";
@@ -35,7 +35,7 @@
 		// Deprecated HTML elements
 		$( 'applet, basefont, center, dir, font, isindex, menu, s, strike, u' ).filter( function( index ) {
 			return $( this ).closest( '#wpadminbar' ).length === 0;
-		}).addClass( 'jam-html-mistakes jam-html-mistakes-solid jam-html-mistakes-error' ).each( function() {
+		}).addClass( 'jam-html-mistakes jam-html-mistakes-error' ).each( function() {
 			var notice = $( this ).attr( 'title' );
 			if ( typeof notice !== "undefined" ) {
 				notice += "/\n***Deprecated HTML Element***";
@@ -60,5 +60,36 @@
 			$( this ).attr( 'title', notice );
 		});
 		
+		// Proposed deprecated elements
+		/*
+		$( 'input[type="button"], big, tt' ).filter( function( index ) {
+			return $( this ).closest( '#wpadminbar' ).length === 0;
+		}).addClass( 'jam-html-mistakes jam-html-mistakes-notice' ).each( function() {
+			var notice = $( this ).attr( 'title' );
+			if ( typeof notice !== "undefined" ) {
+				notice += "/\n***Proposed deprecated HTML Element***";
+			}
+			else {
+				notice = "***Proposed deprecated HTML Element***";
+			}
+			$( this ).attr( 'title', notice );
+		});
+		*/
+	   
+	   // Proposed deprecated attributes
+	   /*
+	   $( '*[border], a[target], table[cellpadding], table[cellspacing], *[name]' ).filter( function( index ) {
+			return $( this ).closest( '#wpadminbar' ).length === 0;
+		}).addClass( 'jam-html-mistakes jam-html-mistakes-solid jam-html-mistakes-notice' ).each( function() {
+			var notice = $( this ).attr( 'title' );
+			if ( typeof notice !== "undefined" ) {
+				notice += "/\n***Proposed deprecated attribute***";
+			}
+			else {
+				notice = "***Proposed deprecated attribute***";
+			}
+			$( this ).attr( 'title', notice );
+		});
+	   */
 	});
 })( jQuery );

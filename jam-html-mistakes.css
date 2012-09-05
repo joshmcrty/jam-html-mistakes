@@ -11,6 +11,9 @@
 .jam-html-mistakes-solid {
 	outline-style: solid !important;
 }
+.jam-html-mistakes-notice {
+	outline-color: greenyellow;
+}
 .jam-html-mistakes-warning {
 	outline-color: yellow !important;
 }
